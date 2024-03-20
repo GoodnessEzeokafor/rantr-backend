@@ -67,7 +67,7 @@ func AuthMiddleware() gin.HandlerFunc {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
-
+		fmt.Println(data)
 		c.Set("user", utils.Filter([]string{"password"}, data))
 		c.Next()
 	}
